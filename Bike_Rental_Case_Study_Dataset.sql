@@ -16,7 +16,7 @@ create table bike
 	id					int primary key,
 	model				varchar(50),
 	category			varchar(50),
-	price_per_hour		decimal,           -- decimal 
+	price_per_hour		decimal,           -- stores numbers with decimal values accurately
 	price_per_day		decimal,
 	status				varchar(20)
 );
@@ -26,7 +26,7 @@ drop table if exists rental;
 create table rental
 (
 	id					int primary key,
-	customer_id			int references customer(id),
+	customer_id			int references customer(id),   -- -- Foreign key 'The value entered into customer_id must exist in the id column of the customer table'
 	bike_id				int references bike(id),
 	start_timestamp		timestamp,
 	duration			int,
@@ -55,7 +55,7 @@ create table membership
 	total_paid			decimal
 );
 
-
+ -- Values Insertion--
 
 insert into customer values(1,	'John Doe',			'john.doe@example.com');
 insert into customer values(2,	'Alice Smith',		'alice.smith@example.com');
